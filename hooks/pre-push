@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# This script runs Android lint check before pushing your branch to remote.
+# Copy and paste it into your `projectDirectory/.git/hooks`
+# Make sure the file is executable by running `chmod +x pre-push
+
+CMD=`./gradlew lintDebug`
+# Check if we actually have commits to push
+commits=`git log @{u}..`
+if [ -z “$commits” ]; then
+ exit 0
+fi
+$CMD
+RESULT=$?
+if [ $RESULT -ne 0 ]; then
+ echo “failed $CMD”
+ exit 1
+fi
+exit 0
