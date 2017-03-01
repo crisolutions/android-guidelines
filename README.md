@@ -3,7 +3,7 @@
 
 Welcome to the Android Guidelines repo 👋 
 
-This repository is used to house all of our project guidelines for the Buffer App on the Android Platform.  
+This repository is forked from Buffer App's Android guidelines and updated to match code styles we are using at CRi Solutions center.  
   
 Here you'll find:
 
