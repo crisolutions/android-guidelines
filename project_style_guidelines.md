@@ -56,11 +56,11 @@ This convention again makes it really easy to locate the specific layout file th
 
 Drawable resource files should be named using the **ic_** prefix along with the size and color of the asset. For example, white accept icon sized at 24dp would be named:
 
-	ic_accept_24dp_white
+	ic_accept_24dp
 
 And a black cancel icon sized at 48dp would be named:
 
-	ic_cancel_48dp_black
+	ic_cancel_48dp
 
 We use this naming convention so that a drawable file is recognisable by its name. If the colour and size are not stated in the name, then the developer needs to open the drawable file to find out this information. This saves us a little bit of time :)
 
@@ -151,7 +151,7 @@ Here we handle the error appropriately by:
 - Throw an appropriate exception
 
 
-#### 2.1.2 Never catch generic exceptions
+#### 2.1.2 Avoid catching generic exceptions
 
 
 Catching exceptions generally should not be done:
@@ -251,34 +251,35 @@ All fields should be declared at the top of the file, following these rules:
 
 
 - Private, non-static field names should not start with m. This is right:
-
-    userSignedIn, userNameText, acceptButton
-
+```
+      userSignedIn, userNameText, acceptButton
+```
 Not this:
-
-    mUserSignedIn, mUserNameText, mAcceptButton
-
+```
+      mUserSignedIn, mUserNameText, mAcceptButton
+```
 
 - Private, static field names do not need to start with an s. This is right:
-
-    someStaticField, userNameText
-
+```
+      someStaticField, userNameText
+```
 Not this:
-
-	sSomeStaticField, sUserNameText
-
+```
+      sSomeStaticField, sUserNameText
+```
 
 - All other fields also start with a lower case letter.
 
-
+```
     int numOfChildren;
     String username;
-
+```
 
 - Static final fields (known as constants) are ALL_CAPS_WITH_UNDERSCORES.
 
-
+```
     private static final int PAGE_COUNT = 0;
+```
 
 Field names that do not reveal intention should not be used. For example,
 
@@ -295,12 +296,12 @@ That's much better!
 
 When naming fields that reference views, the name of the view should be the last word in the name. For example:
 
-| View           | Name              |
-|----------------|-------------------|
-| TextView       | usernameView      |
-| Button         | acceptLoginView   |
-| ImageView      | profileAvatarView |
-| RelativeLayout | profileLayout     |
+| View           | Name              | NOT             |
+|----------------|-------------------|-----------------|
+| TextView       | usernameView      |usernameTextView |
+| Button         | acceptLoginView   |acceptLV         |
+| ImageView      | profileAvatarView |aVProfile        |
+| RelativeLayout | profileLayout     |rl_profile       |
 
 We name views in this way so that we can easily identify what the field corresponds to. For example, having a field named **user** is extremely ambiguous - giving it the name usernameView, userAvatarView or userProfieLayout helps to make it clear  exactly what view the field corresponds with.
 
@@ -408,8 +409,9 @@ Whereas for line wraps, 8 spaces should be used:
 
 #### 2.2.9.1 Use standard brace style
 
-Braces should always be used on the same line as the code before them. For example, avoid doing this:
+Braces should always be used on the same line as the code before them.
 
+##### DON'T #####
 
     class SomeClass
     {
@@ -430,8 +432,8 @@ Braces should always be used on the same line as the code before them. For examp
     	}
 	}
 
-And instead, do this:
 
+##### DO #####
 
 	class SomeClass {
     	private void someFunction() {
@@ -449,12 +451,9 @@ Not only is the extra line for the space not really necessary, but it makes bloc
 
 #### 2.2.9.2 Inline if-clauses
 
-Sometimes it makes sense to use a single line for if statements. For example:
+Sometimes it makes sense to use a single line for if statements. However, it only works for simple operations. For example:
 
     if (user == null) return false;
-
-However, it only works for simple operations. Something like this would be better suited with braces:
-
 
     if (user == null) throw new IllegalArgumentExeption("Oops, user object is required.");
 
@@ -577,21 +576,8 @@ Because we use Android Studio, so imports should always be ordered automatically
 #### 2.2.14 Logging
 
 Logging should be used to log useful error messages and/or other information that may be useful during development.
+We will be mostly using [Timber](https://github.com/JakeWharton/timber). Timber automatically inserts tags, unless you wan't to make it distinct. Please refer to Timber documentation for more info.
 
-
-| Log                               | Reason      |
-|-----------------------------------|-------------|
-| Log.v(String tag, String message) | verbose     |
-| Log.d(String tag, String message) | debug       |
-| Log.i(String tag, String message) | information |
-| Log.w(String tag, String message) | warning     |
-| Log.e(String tag, String message) | error       |
-
-
-We can set the `Tag` for the log as a `static final` field at the top of the class, for example:
-
-
-    private static final String TAG = MyActivity.class.getName();
 
 All verbose and debug logs must be disabled on release builds. On the other hand - information, warning and error logs should only be kept enabled if deemed necessary.
 
@@ -600,18 +586,18 @@ All verbose and debug logs must be disabled on release builds. On the other hand
         Log.d(TAG, "Here's a log message");
     }
 
-**Note:** Timber is the preferred logging method to be used. It handles the tagging for us, which saves us keeping a reference to a TAG.
+For production, errors should be reported to crash reporting platform as non-fatal exceptions.
 
 #### 2.2.15 Field Ordering
 
-Any fields declared at the top of a class file should be ordered in the following order:
+Any fields declared at the top of a class file should be ordered in the following order (from global to local):
 
 1. Enums
 2. Constants
 3. Dagger Injected fields
 4. Butterknife View Bindings
-5. private global variables
-6. public global variables
+5. public global variables
+6. private global variables
 
 For example:
 
@@ -627,11 +613,11 @@ For example:
 	@BindView(R.id.text_name) TextView nameText;
 	@BindView(R.id.image_photo) ImageView photoImage;
 
-	private int userCount;
-	private String errorMessage;
-
 	public int someCount;
 	public String someString;
+	
+	private int userCount;
+	private String errorMessage;
 
 Using this ordering convention helps to keep field declarations grouped, which increases both the locating of and readability of said fields.
 
@@ -701,6 +687,46 @@ Any lifecycle methods used in Android framework classes should be ordered in the
 
         // public methods, private methods, inner classes and interfaces
 
+    }
+
+To group methods, you can use comment regions. Regions will allow you to collapse them and your code will look cleaner.For example:
+
+    public class MainActivity extends Activity {
+
+        // region Activity Lifecycle Methods
+
+        @Override
+        public void onCreate() { }
+
+        @Override
+        public void onStart() { }
+
+        @Override
+        public void onResume() { }
+
+        @Override
+        public void onPause() { }
+
+        @Override
+        public void onStop() { }
+
+        @Override
+        public void onRestart() { }
+
+        @Override
+        public void onDestroy() { }
+
+        // endregion
+
+    }
+    
+When collapsed, this is how it will look:
+
+
+    public class MainActivity extends Activity {
+
+        Activity Lifecycle Methods
+	
     }
 
 #### 2.2.17 Method parameter ordering
@@ -777,14 +803,14 @@ When creating new instances of a fragment or activity that involves passing data
 
 #### 2.2.21 Line Length Limit
 
-Code lines should exceed no longer than 100 characters, this makes the code more readable. Sometimes to achieve this, we may need to:
+Code lines should exceed no longer than 120 characters, this makes the code more readable. Sometimes to achieve this, we may need to:
 
 
 - Extract data to a local variable
 - Extract logic to an external method
 - Line-wrap code to separate a single line of code to multiple lines
 
-**Note:** For code comments and import statements it’s ok to exceed the 100 character limit.
+**Note:** For code comments and import statements it’s ok to exceed the 120 character limit.
 
 #### 2.2.21.1 Line-wrapping techniques
 
@@ -803,6 +829,16 @@ If desirable, you can always break after the `=` sign:
 
     int count =
             countOne + countTwo - countThree + countFour * countFive + countSix;
+	    
+Don't break the line from resource identifier:
+
+##### DO #####
+    LoginTypeView view = (LoginTypeView) from(loginTypeContainer.getContext())
+                    .inflate(R.layout.view_login_bottom_action_item, loginTypeContainer, false);
+
+##### DON'T #####
+     LoginTypeView view = (LoginTypeView) from(loginTypeContainer.getContext()).inflate(R.layout
+     .view_login_bottom_action_item, loginTypeContainer, false);
 
 **Method Chaining**
 
@@ -1035,22 +1071,22 @@ The main reason for this is consistency, it also makes it easier to search for v
 
 #### 2.3.2.1 ID naming
 
-All IDs should be prefixed using the name of the element that they have been declared for.
+All IDs should be prefixed using the short name of the element that they have been declared for.
 
 | Element        | Prefix    |
 |----------------|-----------|
-| ImageView      | image_    |
-| Fragment       | fragment_ |
-| RelativeLayout | layout_   |
-| Button         | button_   |
-| TextView       | text_     |
+| ImageView      | img_    |
+| Fragment       | frag_ |
+| RelativeLayout | lyt_   |
+| Button         | btn_   |
+| TextView       | tv_     |
 | View           | view_     |
 
 For example:
 
 
     <TextView
-        android:id="@+id/text_username"
+        android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
