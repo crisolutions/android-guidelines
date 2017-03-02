@@ -4,16 +4,24 @@
 # Copy and paste it into your `projectDirectory/.git/hooks`
 # Make sure the file is executable by running `chmod +x pre-push
 
-CMD=`./gradlew lintDebug`
 # Check if we actually have commits to push
 commits=`git log @{u}..`
+
 if [ -z “$commits” ]; then
  exit 0
 fi
-$CMD
-RESULT=$?
-if [ $RESULT -ne 0 ]; then
- echo “failed $CMD”
+
+SIZE=1
+while read -r line
+do
+    echo "$line"
+    size=$(($SIZE + ${#line}))
+done < <(./gradlew lintDebug)
+
+if [ $SIZE -ne 0 ]; then
+ echo -e "\n\n"
+ echo “Failed Lint check. Please fix errors and warnings before pushing your branch.”
+ echo -e "\n"
  exit 1
 fi
 exit 0
