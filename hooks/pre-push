@@ -16,7 +16,7 @@ while read -r line
 do
     echo "$line"
     size=$(($SIZE + ${#line}))
-done < <(./gradlew lintDebug)
+done < <(./gradlew lintDebug testDebug)
 
 if [ $SIZE -ne 0 ]; then
  echo -e "\n\n"
