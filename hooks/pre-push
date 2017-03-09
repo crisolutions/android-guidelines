@@ -11,17 +11,14 @@ if [ -z “$commits” ]; then
  exit 0
 fi
 
-SIZE=1
 while read -r line
 do
     echo "$line"
-    size=$(($SIZE + ${#line}))
-done < <(./gradlew lintDebug testDebug checkstyle)
+done < <(./gradlew lintDebug testDebug checkstyle -q)
 
-if [ $SIZE -ne 0 ]; then
- echo -e "\n\n"
- echo “Failed Lint check. Please fix errors and warnings before pushing your branch.”
+if [ ${PIPESTATUS[0]} -ne "0" ]; then
  echo -e "\n"
+ echo “Failed lint check, unit tests, or checkstyle. Please fix errors and warnings before pushing your branch.”
  exit 1
 fi
 exit 0
