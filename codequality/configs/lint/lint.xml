@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+
+    <!-- CORRECTNESS -->
+    <issue id="UsesMinSdkAttributes" severity="error"/>
+    <issue id="ScrollViewCount" severity="error"/>
+    <issue id="CommitPrefEdits" severity="error"/>
+    <issue id="DuplicateIncludedIds" severity="error"/>
+    <issue id="Registered" severity="error"/>
+    <issue id="ShowToast" severity="error"/>
+    <issue id="SimpleDateFormat" severity="error"/>
+    <issue id="MissingId" severity="error"/>
+    <issue id="ExtraText" severity="error"/>
+    <issue id="InvalidPackage">
+        <ignore regexp="okio-.*.jar"/>
+        <ignore regexp="retrofit-.*.jar"/>
+    </issue>
+
+    <!-- SECURITY -->
+    <issue id="UseCheckPermission" severity="error"/>
+
+    <!-- PERFORMANCE -->
+    <!--
+        <issue id="UnusedResources" severity="error"/>
+    -->
+    <issue id="Recycle" severity="error"/>
+    <issue id="StaticFieldLeak" severity="error"/>
+    <issue id="UseValueOf" severity="error"/>
+    <issue id="InefficientWeight" severity="error"/>
+    <issue id="NestedWeights" severity="error"/>
+    <issue id="UselessParent" severity="error"/>
+    <issue id="TooDeepLayout" severity="error"/>
+    <issue id="TooManyViews" severity="error"/>
+
+    <!-- USABILITY -->
+    <issue id="TypographyQuotes" severity="error"/>
+    <issue id="TextFields" severity="error"/>
+    <issue id="NegativeMargin" severity="error"/>
+
+    <!-- ACCESSIBILITY -->
+    <issue id="ClickableViewAccessibility" severity="error"/>
+    <issue id="ContentDescription" severity="error"/>
+    <issue id="LabelFor" severity="error"/>
+
+    <!-- INTERNATIONALIZATION -->
+    <issue id="HardcodedText" severity="error"/>
+</lint>

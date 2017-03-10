@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# This script runs Android lint check before pushing your branch to remote.
+# Copy and paste it into your `projectDirectory/.git/hooks`
+# Make sure the file is executable by running `chmod +x pre-push
+
+# Check if we actually have commits to push
+commits=`git log @{u}..`
+
+if [ -z “$commits” ]; then
+ exit 0
+fi
+
+while read -r line
+do
+    echo "$line"
+done < <(./gradlew lintDebug testDebug checkstyle -q)
+
+if [ ${PIPESTATUS[0]} -ne "0" ]; then
+ echo -e "\n"
+ echo “Failed lint check, unit tests, or checkstyle. Please fix errors and warnings before pushing your branch.”
+ exit 1
+fi
+exit 0
