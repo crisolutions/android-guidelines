@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inspections version="1.0">
+  <option name="myName" value="Project Default" />
+  <inspection_tool class="AndroidLintApplySharedPref" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintContentDescription" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintDuplicateIncludedIds" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintExtraText" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintInefficientWeight" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintLabelFor" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintNegativeMargin" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintNestedWeights" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintRecycle" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintRecyclerView" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintRegistered" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintScrollViewCount" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintShowToast" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintSimpleDateFormat" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintStaticFieldLeak" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintTextFields" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintTooDeepLayout" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintTooManyViews" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintTypographyDashes" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintTypographyEllipsis" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintTypographyOther" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintUseValueOf" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintUselessParent" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintUsesMinSdkAttributes" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="LoggerInitializedWithForeignClass" enabled="false" level="WARNING" enabled_by_default="false">
+    <option name="loggerClassName" value="org.apache.log4j.Logger,org.slf4j.LoggerFactory,org.apache.commons.logging.LogFactory,java.util.logging.Logger" />
+    <option name="loggerFactoryMethodName" value="getLogger,getLogger,getLog,getLogger" />
+  </inspection_tool>
+  <inspection_tool class="MagicNumber" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="PermissionUsageInspection" enabled="true" level="ERROR" enabled_by_default="true" />
+</inspections>
+
