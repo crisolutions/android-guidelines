@@ -6,7 +6,7 @@
 
 3. **Text field hints:** For EditText fields, provide an `android:hint` attribute instead of a content description, to help users understand what content is expected when the text field is empty and allow the contents of the field to be spoken when it is filled.
 
-4. **Controls that change function:** If you have buttons or other controls that change function during the normal activity of a user in your application (for example, a button that changes from Play to Pause), make sure you also change the `android:contentDescriptio`n of the button appropriately.
+4. **Controls that change function:** If you have buttons or other controls that change function during the normal activity of a user in your application (for example, a button that changes from Play to Pause), make sure you also change the `android:contentDescription` of the button appropriately.
 
 5. **Sets of small controls:** If you have controls that are smaller than the minimum recommended touch size in your application screens, consider grouping these controls together using a ViewGroup and providing a `android:contentDescription` for the group.
 
