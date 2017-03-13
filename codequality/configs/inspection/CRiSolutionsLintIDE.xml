@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inspections version="1.0">
-  <option name="myName" value="Project Default" />
+  <option name="myName" value="CRiSolutionsLintIDE" />
   <inspection_tool class="AndroidLintApplySharedPref" enabled="true" level="ERROR" enabled_by_default="true" />
   <inspection_tool class="AndroidLintContentDescription" enabled="true" level="ERROR" enabled_by_default="true" />
   <inspection_tool class="AndroidLintDuplicateIncludedIds" enabled="true" level="ERROR" enabled_by_default="true" />
