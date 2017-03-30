@@ -16,7 +16,7 @@
 # Copy and paste it into your `projectDirectory/.git/hooks`
 # Make sure the file is executable by running `chmod +x commit-msg`
 
-ticket=$(git symbolic-ref HEAD | perl -ne '/(ARGO-\d+)/; print "$1"')
+ticket=$(git symbolic-ref HEAD | perl -ne '/([A-Za-z]*-\d+)/; print "$1"')
 
 if [ -n "$ticket" ]; then
     echo "$ticket"' : '$(cat "$1") > "$1"
