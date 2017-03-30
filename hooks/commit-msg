@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ticket=$(git symbolic-ref HEAD | perl -ne '/(ARGO-\d+)/; print "$1"')
+if [ -n "$ticket" ]; then
+    echo "$ticket"' : '$(cat "$1") > "$1"
+fi
