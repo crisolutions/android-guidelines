@@ -1,14 +1,20 @@
 #!/bin/sh
 
- # This script edits commit message and attaches story number to commit message.
+###################################
+#                                 #
+# DO NOT TRY ON A WINDOWS MACHINE #
+#                                 #
+##################################
 
- # NOTE: We assume story number is included in branch name
- # For example, 'ABC-123-test-branch-name'
+# This script edits commit message and attaches story number to commit message.
 
- # After script executed, new commit message would be: "ABC-123 : your commit message"
+# NOTE: We assume story number is included in branch name
+# For example, 'ABC-123-test-branch-name'
 
- # Copy and paste it into your `projectDirectory/.git/hooks`
- # Make sure the file is executable by running `chmod +x commit-msg`
+# After script executed, new commit message would be: "ABC-123 : your commit message"
+
+# Copy and paste it into your `projectDirectory/.git/hooks`
+# Make sure the file is executable by running `chmod +x commit-msg`
 
 ticket=$(git symbolic-ref HEAD | perl -ne '/(ARGO-\d+)/; print "$1"')
 
