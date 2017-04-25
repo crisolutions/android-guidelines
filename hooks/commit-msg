@@ -17,7 +17,10 @@
 # Make sure the file is executable by running `chmod +x commit-msg`
 
 ticket=$(git symbolic-ref HEAD | perl -ne '/([A-Za-z]*-\d+)/; print "$1"')
+merge=$(git symbolic-ref HEAD | perl -ne '/(Merge branch)/; print "$1"')
 
-if [ -n "$ticket" ]; then
+if [ -n "$merge" ]; then
+    exit 1
+elif [ -n "$ticket" ]; then
     echo "$ticket"' : '$(cat "$1") > "$1"
 fi
