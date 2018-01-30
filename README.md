@@ -1,9 +1,8 @@
 # Android Guidelines
--------------------
 
-Welcome to the Android Guidelines repo 👋 
+Welcome to the Android Guidelines repo 👋
 
-This repository is forked from Buffer App's Android guidelines and updated to match code styles we are using at CRi Solutions center.  
+This repository contains the code styles we are using at CRi Solutions Center.
   
 Here you'll find:
 
@@ -12,7 +11,7 @@ Here you'll find:
    * [Code Style](/codequality/configs/codestyles)
    * [Lint IDE Inspections](/codequality/configs/inspection)
    * [Gradle Lint Rules](/codequality/configs/lint)
-2. [Project Guidelines] (/project_style_guidelines.md)
+2. [Project Guidelines](/project_style_guidelines.md)
 3. [Accessibility Guide](/accessibility/accessibility_guide.md)
 4. [Git Hooks](/hooks)
 
