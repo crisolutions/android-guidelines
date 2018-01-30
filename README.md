@@ -12,7 +12,9 @@ Here you'll find:
    * [Code Style](/codequality/configs/codestyles)
    * [Lint IDE Inspections](/codequality/configs/inspection)
    * [Gradle Lint Rules](/codequality/configs/lint)
-2. [Project Guidelines] (/project_style_guidelines.md) 
+2. [Project Guidelines] (/project_style_guidelines.md)
+3. [Accessibility Guide](/accessibility/accessibility_guide.md)
+4. [Git Hooks](/hooks)
 
 ## Licence
 
