@@ -1,4 +1,4 @@
-#Android Guidelines
+# Android Guidelines
 -------------------
 
 Welcome to the Android Guidelines repo 👋 
@@ -7,15 +7,16 @@ This repository is forked from Buffer App's Android guidelines and updated to ma
   
 Here you'll find:
 
-1. [Code Quality](/Code_Quality)  
-  * [CheckStyle Configuration](/Code_Quality/checkstyle)  
-  * [FindBugs Configuration](/Code_Quality/findbugs)  
-  * [PMD Configuration](/Code_Quality/pmd) 
+1. [Code Quality](/codequality)
+   * [CheckStyle Configuration](/codequality/configs/checkstyle)
+   * [Code Style](/codequality/configs/codestyles)
+   * [Lint IDE Inspections](/codequality/configs/inspection)
+   * [Gradle Lint Rules](/codequality/configs/lint)
 2. [Project Guidelines] (/project_style_guidelines.md)
 3. [Accessibility Guide](/accessibility/accessibility_guide.md)
 4. [Git Hooks](/hooks)
 
-##Licence
+## Licence
 
 ```
 Copyright 2016 Buffer, Inc.
