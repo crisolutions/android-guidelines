@@ -7,11 +7,12 @@ This repository is forked from Buffer App's Android guidelines and updated to ma
   
 Here you'll find:
 
-1. [Code Quality](/Code_Quality)
-   * [CheckStyle Configuration](/Code_Quality/checkstyle)
-   * [FindBugs Configuration](/Code_Quality/findbugs)
-   * [PMD Configuration](/Code_Quality/pmd)
-2. [Project Guidelines](/project_style_guidelines.md)
+1. [Code Quality](/codequality)
+   * [CheckStyle Configuration](/codequality/configs/checkstyle)
+   * [Code Style](/codequality/configs/codestyles)
+   * [Lint IDE Inspections](/codequality/configs/inspection)
+   * [Gradle Lint Rules](/codequality/configs/lint)
+2. [Project Guidelines] (/project_style_guidelines.md) 
 
 ## Licence
 
