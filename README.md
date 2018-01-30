@@ -1,4 +1,4 @@
-#Android Guidelines
+# Android Guidelines
 -------------------
 
 Welcome to the Android Guidelines repo 👋 
@@ -14,7 +14,7 @@ Here you'll find:
    * [Gradle Lint Rules](/codequality/configs/lint)
 2. [Project Guidelines] (/project_style_guidelines.md) 
 
-##Licence
+## Licence
 
 ```
 Copyright 2016 Buffer, Inc.
